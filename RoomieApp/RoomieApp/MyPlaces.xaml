@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RoomieApp.MyPlaces"
+             Title="My places"
+              xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+           >
+    <Label Text="You don't have places yet !" HorizontalOptions="Center" 
+           VerticalOptions="Center" x:Name="labPlaces"/>
+
+    <ListView x:Name="lv" HasUnevenRows="True">
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Padding="5">
+                        <ic:CircleImage Source="ic_launcher.png" Aspect="AspectFill" WidthRequest="50" HeightRequest="50"></ic:CircleImage>
+                        <StackLayout>
+                            <Label Text="{Binding description}" FontSize="18" FontAttributes="Bold" TextColor="Black"></Label>
+                            <Label Text="{Binding price}" FontSize="16" TextColor="Black" HorizontalOptions="Start"></Label>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="EndAndExpand">
+                            <Label  FontSize="16" VerticalOptions="End" TextColor="Black"></Label>
+
+                            <Label Text="{Binding name}" FontSize="16" VerticalOptions="End" TextColor="Black"></Label>
+                            </StackLayout>
+                        
+                        <!--
+                        <StackLayout HorizontalOptions="EndAndExpand" BackgroundColor="Aqua">
+                            <Label Text="{Binding name}" FontSize="16" VerticalOptions="End" TextColor="Black"></Label>
+                        </StackLayout>
+                        -->
+
+                        
+
+
+                    </StackLayout>
+                </ViewCell>
+
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

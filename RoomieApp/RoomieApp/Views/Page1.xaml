@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RoomieApp.Views.Page1"
+             BackgroundColor="#0A8754"
+             NavigationPage.HasNavigationBar="false"
+             >
+
+
+    <RelativeLayout>
+
+        <StackLayout x:Name="logolayout"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression 
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.5}"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=1}"
+                     HorizontalOptions="Center" VerticalOptions="Center">
+
+            <Image Source="logo.png"
+                   Aspect="AspectFit"  />
+            <Label Text="RoomieApp"  FontSize="32" TextColor="#F8EEE7" HorizontalOptions="Center" 
+                   >
+                
+            </Label>
+
+            
+        </StackLayout>
+
+        <Button Text="Login with Facebook"
+                x:Name="loginBtn"
+                TextColor="White"
+                BackgroundColor="#01579B"
+                Font="Bold"
+                FontSize="26"
+                Clicked="LoginWithFacebook_Clicked" 
+                BorderRadius="25"
+                RelativeLayout.XConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=0.1
+				}"
+                RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.65
+				}"/>
+
+        <Label Margin="10" Text='"We chose facebook because it is one good way to verify the integrity of the user"'
+               FontSize="20"
+               TextColor="#FFFFFF"
+               XAlign="Center"
+               
+               RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToView,
+                ElementName=loginBtn,
+				Property=Y,
+				Factor=1,
+                Constant=70}"
+               />
+        
+
+        <!-- <Image Source="ic_favorite.png" 
+               ></Image>
+        <Label Text="RoomieApp"
+               TextColor="#FFFFFF" />
+
+
+        <Button Text="Login with Facebook"
+                TextColor="White"
+                BackgroundColor="#01579B"
+                Font="Bold"
+                FontSize="26"
+                Clicked="LoginWithFacebook_Clicked" 
+                BorderRadius="25"/>
+
+        <Label Text="We chose facebook because it is one good
+               way to verify the integrity of the user"
+               FontSize="20"
+               TextColor="#FFFFFF" />-->
+
+
+    </RelativeLayout>
+</ContentPage>
+    

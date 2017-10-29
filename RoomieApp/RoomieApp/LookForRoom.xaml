@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:placesSearchBar="clr-namespace:DurianCode.PlacesSearchBar;assembly=DurianCode.PlacesSearchBar"
+             x:Class="RoomieApp.LookForRoom"
+             Title="Look for a room" 
+             Padding="20">
+
+    <AbsoluteLayout>
+
+
+        <StackLayout Spacing="20" AbsoluteLayout.LayoutBounds="0.5,0.8,1,0.7" AbsoluteLayout.LayoutFlags="All">
+            <Entry Keyboard="Numeric" PlaceholderColor="#95989A" Placeholder="Approx Rent" x:Name="approxRent" Margin="40"></Entry>
+            <Label Text="Looking for" TextColor="#1E59A7" FontSize="16" FontAttributes="Bold"></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button BackgroundColor="#FFFFFF" Text="Male" BorderColor="#95989A" BorderWidth="2" BorderRadius="20" Clicked="radio_button_clicked" x:Name="btnMale"></Button>
+                <Button BackgroundColor="#FFFFFF" Text="Female" BorderColor="#95989A" BorderWidth="2" BorderRadius="20" Clicked="radio_button_clicked" x:Name="btnFemale"></Button>
+                <Button BackgroundColor="#FFFFFF" Text="Any" BorderColor="#1E59A7" BorderWidth="2" BorderRadius="20" Clicked="radio_button_clicked" x:Name="btnAny"></Button>
+
+            </StackLayout>
+            <Button BackgroundColor="#1E59A7"  FontAttributes="Bold" TextColor="White" BorderWidth="2" BorderRadius="25" Margin="30" Text="Find" HorizontalOptions="Center" VerticalOptions="End" Clicked="Button_OnClicked"></Button>
+
+        </StackLayout>
+        
+
+        <Label Text="Where and what do you want to be your next home."
+                AbsoluteLayout.LayoutBounds="0.5, 0.02, 1, 0.2"
+                               AbsoluteLayout.LayoutFlags="All" FontSize="18" XAlign="Center"/>
+        
+        <placesSearchBar:PlacesBar Margin="0" x:Name="search_bar" AbsoluteLayout.LayoutBounds="0,0.2,0.9,0.2" AbsoluteLayout.LayoutFlags="All"/>
+         <!--   <Image Source="powered_by_google_on_white.png" BackgroundColor="Black" HeightRequest="30" HorizontalOptions="Center" />
+            -->
+                <ActivityIndicator x:Name="spinner" IsRunning="false"
+                                   AbsoluteLayout.LayoutBounds="0.5, 0.21, 50, 50"
+                               AbsoluteLayout.LayoutFlags="PositionProportional" />
+                <ListView x:Name="results_list" IsVisible="false"
+                          AbsoluteLayout.LayoutBounds="0.2,0.72,0.8,0.6" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#ffffff">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Description}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+        <!--<Button Text="Find" HorizontalOptions="Center" Clicked="Button_OnClicked"  AbsoluteLayout.LayoutBounds="0.5,0.95,100,50" AbsoluteLayout.LayoutFlags="PositionProportional" BackgroundColor="#ffffff"></Button>
+-->
+    </AbsoluteLayout>
+</ContentPage>

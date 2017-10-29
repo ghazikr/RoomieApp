@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RoomieApp.AvailableRooms"
+             Title="Available Rooms">
+
+
+   <StackLayout Orientation="Vertical" Padding="15">
+        <Label x:Name="rooms" Text="No rooms available !" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+
+        
+        <ListView x:Name="listView"
+                  VerticalOptions="FillAndExpand"
+                  HasUnevenRows="True"
+                 
+                   >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <RelativeLayout HeightRequest="300">
+
+                            <Image x:Name="imgRoom" BackgroundColor="Aqua" Aspect="AspectFill" Source="{Binding imageURL}"
+                           RelativeLayout.HeightConstraint="{ConstraintExpression 
+		Type=RelativeToParent,
+		Property=Height,
+		Factor=0.5}"
+                           RelativeLayout.WidthConstraint="{ConstraintExpression
+		Type=RelativeToParent,
+		Property=Width,
+		Factor=1}" />
+                             <Label  Text="{Binding description}" FontSize="20" TextColor="#000000" FontAttributes="Bold"
+                                   RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.5,
+				}" />
+                            <Label Text="{Binding name}"  FontSize="14" TextColor="#C5C5C5"
+                                   RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.58,
+				}"/>
+                            <Label Text="{Binding price}" x:Name="lab" FontSize="20" TextColor="#000000"
+                                    RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.66,
+				}"/>
+                            <Label Text="$ per month" FontSize="12" TextColor="#000000"
+                                   
+                                  RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.68,}" 
+                
+                RelativeLayout.XConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+  				Property=Width,
+				Factor=0.11,
+                
+				}"></Label>
+
+
+                            <Image ClassId="{Binding contact_number}" Source="ic_favorite.png" WidthRequest="50" HeightRequest="50"
+                           RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.4,
+				}"
+                           RelativeLayout.XConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=0.82,
+				}">
+                                <Image.GestureRecognizers>
+
+                                    <TapGestureRecognizer
+                                Tapped="Button_OnClicked" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+
+
+
+                        </RelativeLayout>
+                    </ViewCell>
+
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout> 
+    
+    
+    <!--<ListView x:Name="listView"
+               HasUnevenRows="True">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell >
+                    <StackLayout Padding="10" Orientation="Vertical">
+                        <Image Source="{Binding imageURL}" Aspect="AspectFill"></Image>
+                        <StackLayout Orientation="Vertical">                 
+        <Label Text="Amazing place for one" FontSize="20" TextColor="#000000"/>
+        <Label Text="{Binding name}"  FontSize="14" TextColor="#000000" />
+        <StackLayout Orientation="Horizontal" BackgroundColor="Aqua">
+            <Label Text="{Binding price}" FontSize="20" TextColor="#000000"/>
+            <Label Text="per month" FontSize="12" TextColor="#000000"></Label>
+        </StackLayout>
+    </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+
+
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>-->
+</ContentPage>

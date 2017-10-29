@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:placesSearchBar="clr-namespace:DurianCode.PlacesSearchBar;assembly=DurianCode.PlacesSearchBar"
+             x:Class="RoomieApp.LookRoommates"
+             Title="Look for a roommate"
+             Padding="20">
+
+    
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0.5,1,1,0.8" Margin="20" Spacing="8" AbsoluteLayout.LayoutFlags="All">
+            <Entry Keyboard="Numeric" Placeholder="Rent per head" PlaceholderColor="#95989A" x:Name="approxRent" ></Entry>
+            <Entry Keyboard="Text" Placeholder="description" PlaceholderColor="#95989A" x:Name="desc" ></Entry>
+            <Label Text="Looking for" TextColor="#1E59A7" FontSize="16" FontAttributes="Bold"></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button BackgroundColor="#FFFFFF" Text="Male" BorderColor="#95989A" BorderWidth="2" BorderRadius="20" Clicked="radio_button_clicked" x:Name="btnMale"></Button>
+                <Button BackgroundColor="#FFFFFF" Text="Female" BorderColor="#95989A" BorderWidth="2" BorderRadius="20" Clicked="radio_button_clicked" x:Name="btnFemale"></Button>
+                <Button BackgroundColor="#FFFFFF" Text="Any" BorderColor="#1E59A7" BorderWidth="2" BorderRadius="20" Clicked="radio_button_clicked" x:Name="btnAny"></Button>
+
+            </StackLayout>
+            <Label Text="Add images" FontSize="16" FontAttributes="Bold" TextColor="#1E59A7"></Label>
+            <Button Text="Pick a Photo" FontAttributes="Bold" TextColor="White" BackgroundColor="#1E59A7" BorderRadius="30" x:Name="pickPhoto" HorizontalOptions="Center"/>
+            <Entry Keyboard="Numeric" Placeholder="Contact Number" PlaceholderColor="#95989A" x:Name="contactNumber" ></Entry>
+
+            <Button Text="Add"  FontAttributes="Bold" TextColor="White" BackgroundColor="#1E59A7" BorderWidth="2" BorderRadius="25" HorizontalOptions="Center" Clicked="btn_add_flat"></Button>
+        </StackLayout>
+        <Label Text="Look for roommates by adding flats now!" FontSize="18" XAlign="Center"
+               HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="0.5, 0.02, 1, 0.2"
+                               AbsoluteLayout.LayoutFlags="All" />
+        <placesSearchBar:PlacesBar x:Name="search_bar" AbsoluteLayout.LayoutBounds="0.5,0.05,1,0.2" AbsoluteLayout.LayoutFlags="All"/>
+        <Image Source="powered_by_google_on_white.png" HeightRequest="30" HorizontalOptions="Center" />
+       
+            <ActivityIndicator x:Name="spinner" IsRunning="false"
+                               AbsoluteLayout.LayoutBounds="0.5, 0.08, 50, 50"
+                               AbsoluteLayout.LayoutFlags="PositionProportional" />
+        
+            <ListView x:Name="results_list" IsVisible="false"
+                      AbsoluteLayout.LayoutBounds="0.2,0.4,0.8,0.6" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#ffffff">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Description}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+        
+   </AbsoluteLayout>
+</ContentPage>

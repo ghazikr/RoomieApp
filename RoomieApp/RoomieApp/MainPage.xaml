@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+				  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+				  xmlns:local="clr-namespace:RoomieApp"
+				  xmlns:placesSearchBar="clr-namespace:DurianCode.PlacesSearchBar;assembly=DurianCode.PlacesSearchBar"
+				  x:Class="RoomieApp.MainPage"
+				  NavigationPage.HasBackButton="False"
+                   xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             >
+
+	<!--<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" Android="0" />
+	</ContentPage.Padding>-->
+	<MasterDetailPage.Master>
+		<ContentPage Title="master">
+			<RelativeLayout>
+				<BoxView
+					RelativeLayout.HeightConstraint="{ConstraintExpression 
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.23}"
+					RelativeLayout.WidthConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=1}"
+					BackgroundColor="#0A8754" />
+
+				<StackLayout
+					RelativeLayout.HeightConstraint="{ConstraintExpression 
+				Type=RelativeToParent,
+				Property=Height,
+				Factor=0.23}"
+					RelativeLayout.WidthConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=1}"
+					Orientation="Horizontal" Padding="30"
+					VerticalOptions="Center">
+                    <ic:CircleImage x:Name="profIcon" Aspect="AspectFill" WidthRequest="60" HeightRequest="60"></ic:CircleImage>
+
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+						<Label Text="Welcome" Margin="7,0,0,0" HorizontalOptions="StartAndExpand"
+							   VerticalOptions="Center" TextColor="#FFFFFF" FontSize="20" />
+						<Label Margin="7,0,0,0" Text="{Binding Name}" HorizontalOptions="StartAndExpand"
+							   VerticalOptions="Center" TextColor="#FFFFFF" FontSize="16" />
+
+					</StackLayout>
+				</StackLayout>
+				<StackLayout
+					RelativeLayout.WidthConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				Property=Width,
+				Factor=1}"
+
+					RelativeLayout.YConstraint="{ConstraintExpression
+				Type=RelativeToParent,
+				ElementName=logolayout,
+				Property=Height,
+				Factor=0.25
+				}">
+
+					<StackLayout VerticalOptions="FillAndExpand" Padding="15">
+						<ListView ItemSelected="ListView_OnItemSelected" x:Name="listView"
+								  VerticalOptions="FillAndExpand"
+								  HasUnevenRows="True" SeparatorVisibility="Default">
+							<ListView.ItemTemplate>
+								<DataTemplate>
+
+									<!-- <ImageCell Text="{Binding itemName}" ImageSource="{Binding itemIcon}"
+											   TextColor="Black"  />-->
+									<ViewCell>
+										<StackLayout Orientation="Horizontal" Margin="0,0,0,15">
+											<Image Source="{Binding itemIcon}" WidthRequest="45" HeightRequest="45"
+												   Margin="0,7,0,0" />
+											<Label Text="{Binding itemName}" VerticalOptions="Center" />
+										</StackLayout>
+									</ViewCell>
+
+
+								</DataTemplate>
+							</ListView.ItemTemplate>
+						</ListView>
+					</StackLayout>
+				</StackLayout>
+			</RelativeLayout>
+		</ContentPage>
+
+	</MasterDetailPage.Master>
+
+
+	<MasterDetailPage.Detail>
+		<ContentPage />
+	</MasterDetailPage.Detail>
+
+
+</MasterDetailPage>
